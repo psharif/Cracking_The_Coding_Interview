@@ -3,6 +3,10 @@ class Node {
     this.data = data;
     this.next = null;
   }
+
+  setNext(node){
+    this.next = node;
+  }
 }
 
 class LinkedList {

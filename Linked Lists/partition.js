@@ -75,7 +75,7 @@ const partition2 = (node, partition) => {
 	return head;
 }
 
-var linked = new LinkedList();
+const linked = new LinkedList();
 
 linked.addData(3);
 linked.addData(2);
