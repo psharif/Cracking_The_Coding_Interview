@@ -42,7 +42,7 @@ const kthFromLast2 = (node, k) => {
 
   return p2;
 }
-
+/*
 const linked = new LinkedList();
 
 linked.addData(3);
@@ -59,10 +59,9 @@ console.log("Added numbers");
 linked.print(linked.getHead());
 console.log();
 
-console.log("The 4th from Last Element is");
-//const middle = linked.kthFromLast1(linked.getHead(), 4);
 const middle = kthFromLast1(linked.getHead(), 4);
-console.log(middle);
+console.log("The 4th from Last Element is " + middle.data);
 console.log();
+*/
 
 module.exports = kthFromLast1;
