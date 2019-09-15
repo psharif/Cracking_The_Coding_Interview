@@ -1,6 +1,6 @@
 /// Implement a stack that returns the minimum
 /// in O(1) constant time.
-class minStack {
+class MinStack {
   /// We will use two stacks one with minimums
   /// One regular.
   constructor(){
