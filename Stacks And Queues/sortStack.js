@@ -2,13 +2,12 @@ const Stack = require('./stack.js');
 
 const  sortStack = stack => {
   sorted = new Stack();
-
   /// While the regular stack has elements.
   /// pop that element find the right place to put it
   /// in sorted stack.
   /// pop sorted elements that are greater than the current
   /// value and put them back in the regular stack.
-  /// push the value into the sorted stack. 
+  /// push the value into the sorted stack.
   while(!stack.isEmpty()) {
     let val = stack.pop();
     while(!sorted.isEmpty() && val < sorted.peek()) {
