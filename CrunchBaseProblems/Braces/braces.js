@@ -1,11 +1,10 @@
 
 // Complete the braces function below.
 function braces(values) {
-
     /// Use a stack to keep half of the braces the left ones.
     const result = [];
     let stack = [];
-    //let bool = "YES";
+    let bool;
     let val;
     ///If we hit a right brace pop of the brace from the stack and check that the match. (), {}, []
     for(let str of values) {
@@ -16,7 +15,7 @@ function braces(values) {
                 stack.push(ch);
             }
             else if(ch == ']' || ch == '}' || ch == ')') {
-                console.log(stack);
+                //console.log(stack);
                 if(stack.length == 0) {
                     bool = "NO";
                     break;
@@ -34,7 +33,8 @@ function braces(values) {
                         bool = "NO";
                         break;
                     }
-                }else if(ch == ')'){
+                }
+                else if(ch == ')'){
                     if(val !== '('){
                         bool = "NO";
                         break;
@@ -42,7 +42,7 @@ function braces(values) {
                 }
             }
         }
-        console.log(bool);
+        //console.log(bool);
         if(bool == "YES" && stack.length == 0) {
             bool = "YES";
         }
