@@ -1,4 +1,6 @@
-
+/// Visit this link for explanation
+/// These classes are constructed from examples provided in the below link
+/// https://adrianmejia.com/data-structures-for-beginners-graphs-time-complexity-tutorial/#Adjacency-List-Graph-OO-Implementation
 class Node {
   constructor(value) {
     this.value = value;
