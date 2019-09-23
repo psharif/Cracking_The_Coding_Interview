@@ -116,4 +116,4 @@ class Graph {
   */
 }
 
-module.exports = {Node, Graph};
+module.exports = { Node, Graph };

@@ -1,36 +1,5 @@
-const { LinkedList, Node } = require('../Linked\ Lists/LinkedListES6.js');
-
-class AnimalList extends LinkedList {
-  enqueue(node) {
-    if(this.head == null) {
-      this.head = node;
-    }
-    else {
-      let curr = this.head;
-      while(curr.next) {
-        curr = curr.next;
-      }
-      curr.next = node;
-    }
-    this.size++;
-  }
-  dequeue() {
-    const animal = this.head;
-    this.head = this.head.next;
-    animal.next = null;
-    return animal;
-    this.size--;
-  }
-
-  peek() {
-    const animal = this.head;
-    return animal;
-  }
-
-  size() {
-    return this.size();
-  }
-}
+const { Queue } = require('../Linked\ Lists/queue.js');
+const { Node } = require('../Linked\ Lists/LinkedListES6.js');
 
 class Cat extends Node {
   constructor(name) {
@@ -52,8 +21,8 @@ class Dog extends Node {
 
 class AnimalShelter {
   constructor() {
-    this.catList = new AnimalList();
-    this.dogList = new AnimalList();
+    this.catList = new Queue();
+    this.dogList = new Queue();
     this.order = 0;
   }
 
@@ -115,15 +84,4 @@ console.log(animal.name);
 console.log(animal2.name);
 console.log(animal3.name);
 
-
-
-/*
-const animalList = new AnimalList();
-animalList.enqueue(new Cat("Spot"));
-animalList.enqueue(new Dog("George"));
-animalList.enqueue(new Dog("Kit"));
-
-animalList.print(animalList.getHead());
-
-const animals = new AnimalList();
-*/
+module.exports = { AnimalShelter, Queue };
