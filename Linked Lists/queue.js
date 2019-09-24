@@ -36,10 +36,11 @@ class Queue extends LinkedList {
 }
 
 module.exports = { Queue };
-
+/*
 const q = new Queue();
 q.enqueue(new Node(1));
 q.enqueue(new Node(2));
 q.enqueue(new Node(3));
 
 q.print(q.getHead());
+*/
