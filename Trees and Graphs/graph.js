@@ -40,19 +40,19 @@ class Graph {
 
     sourceNode.addAdjacent(destinationNode);
 
-    if(this.edgeDirection = 'undirected') {
+    if(this.edgeDirection == 'undirected') {
       destinationNode.addAdjacent(sourceNode);
     }
 
     return [sourceNode, destinationNode];
   }
 
-  addVertext(value) {
-    if(this.adjacentNodes.has(value)) {
+  addVertex(value) {
+    if(this.nodes.has(value)) {
       return this.nodes.get(value);
     }
 
-    const node = new Node(Value);
+    const node = new Node(value);
     this.nodes.set(value, node);
     return node;
   }
@@ -74,7 +74,7 @@ class Graph {
     if(sourceNode && destinationNode) {
       sourceNode.removeAdjacent(destinationNode);
 
-      if(this.edgeDirection === Graph.UNDIRECTED) {
+      if(this.edgeDirection == 'undirected') {
         destinationNode.removeAdjacent(sourceNode);
       }
     }
@@ -119,12 +119,12 @@ class Graph {
   }
   */
 }
-
+/*
 const graph = new Graph('directed');
 
 const [first] = graph.addEdge(1, 2);
 graph.addEdge(1, 3);
-graph.addEdge(1, 4);
+graph.addEdge(3, 4);
 graph.addEdge(5, 2);
 graph.addEdge(6, 3);
 graph.addEdge(7, 3);
@@ -132,7 +132,7 @@ graph.addEdge(8, 4);
 graph.addEdge(9, 5);
 graph.addEdge(10, 6);
 
-console.log(values); // [1, 4, 8, 3, 7, 6, 10, 2, 5, 9]
-
+//console.log(values); // [1, 4, 8, 3, 7, 6, 10, 2, 5, 9]
+*/
 
 module.exports = { Node, Graph };
