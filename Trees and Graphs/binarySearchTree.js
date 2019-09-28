@@ -17,10 +17,11 @@ class BinarySearchTree {
   insert(data) {
     const node = new treeNode(data);
     if(this.root == null) {
-      this.root = node
+      this.root = node;
+      return;
     }
 
-    insertNode(this.root, node);
+    this.insertNode(this.root, node);
   }
 
   insertNode(node, newNode) {
@@ -29,6 +30,7 @@ class BinarySearchTree {
       /// Check if the node has a left child if it doesn't insert it.
       if(node.left == null){
         node.left = newNode;
+        return;
       }
       /// If it does look left
       this.insertNode(node.left, newNode);
@@ -38,6 +40,7 @@ class BinarySearchTree {
       /// If there is no right node insert the node.
       if(node.right == null) {
         node.right = newNode;
+        return;
       }
       /// Otherwise look right.
       this.insertNode(node.right, newNode);
@@ -45,19 +48,25 @@ class BinarySearchTree {
   }
    // remove(data) - Helper method to call removeNode with the root.
    remove(data) {
-     return removeNode(this.root, data);
+     return this.removeNode(this.root, data);
    }
    /// removeNode removes the node that has the value of the data you are searching for.
    removeNode(node, data) {
-     if(node.data > data){
+
+     if (node === null){
+       return null;
+     }
+     else if(data < node.data){
        /// If the current node has a value greater than what
        /// we are looking for search left.
-       this.left = this.removeNode(node.left, data);
+       node.left = this.removeNode(node.left, data);
+       return node;
      }
-     else if(node.data < data){
+     else if(data > node.data ){
        /// If the current node has a value less than what
        /// we are looking for search right.
-       this.right = this.removeNode(node.right, data);
+       node.right = this.removeNode(node.right, data);
+       return node;
      }
      else {
        /// The current node has the data we are looking for.
@@ -81,11 +90,11 @@ class BinarySearchTree {
 
        /// Otherwise the node we want to remove has two children. We need to reset this.
        /// Find the middle node on the right side of the tree.
-       const replace = this.findMinNode(this.right);
+       const replace = this.findMinNode(node.right);
        /// Set the data in the removed node to the data in the replacement node.
        node.data = replace.data;
        /// Remove the replacement node and set the edited tree back on the node.
-       this.right = this.removeNode(this.right, replace);
+       node.right = this.removeNode(node.right, replace);
        return node;
      }
    }
@@ -95,10 +104,10 @@ class BinarySearchTree {
    // To find the Min Node
    // Find the most left node
    findMinNode(node) {
-     if(node.left == null) {
+     if(node.left == null)
        return node;
-     }
-     return findMinNode(node.left)
+     else
+       return this.findMinNode(node.left)
    }
 
    // getRootNode()
@@ -109,35 +118,60 @@ class BinarySearchTree {
    inorder(node) {
      if(node !== null) {
        /// Keep traversing till you've reached the last left node.
-       inorder(node.left);
+       this.inorder(node.left);
        /// process the node.
-       console.log(node);
+       console.log(node.data);
        /// Now check the right branch of this node.
-       inorder(node.right);
+       this.inorder(node.right);
      }
    }
    // preorder(node) - prints the current node then it's children.
    preorder(node) {
      if(node !== null) {
        /// process the node
-       console.log(node);
+       console.log(node.data);
        /// Now go to the left branch
-       preorder(node.left);
+       this.preorder(node.left);
        /// Now go to the right branch
-       preorder(node.right);
+       this.preorder(node.right);
      }
    }
    // postorder(node) - prints the children of the node then itself.
    postorder(node) {
      if(node !== null) {
        /// Go left
-       postorder(node.left);
+       this.postorder(node.left);
        /// Go right
-       postorder(node.right);
+       this.postorder(node.right);
        /// Process the node
-       console.log(node.left);
+       console.log(node.data);
      }
    }
    // search(node, data)
 
 }
+
+const tree = new BinarySearchTree();
+
+tree.insert(8);
+tree.insert(4);
+tree.insert(12);
+tree.insert(6);
+tree.insert(7);
+tree.insert(10);
+tree.insert(2);
+tree.insert(14);
+tree.insert(5);
+tree.insert(9);
+tree.insert(1);
+tree.insert(3);
+tree.insert(11);
+tree.insert(13);
+tree.insert(15);
+
+tree.remove(14);
+tree.remove(5);
+
+tree.inorder(tree.getRootNode());
+//tree.preorder(tree.getRootNode());
+//tree.postorder(tree.getRootNode());
