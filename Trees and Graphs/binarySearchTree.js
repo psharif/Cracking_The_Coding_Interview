@@ -94,26 +94,50 @@ class BinarySearchTree {
 
    // To find the Min Node
    // Find the most left node
-   findMinNode() {
-     const node = this.getRoot();
-     while(node.left !== null) {
-       node = node.left;
+   findMinNode(node) {
+     if(node.left == null) {
+       return node;
      }
-     return node;
+     return findMinNode(node.left)
    }
 
    // getRootNode()
    getRootNode() {
-     if(this.root !== null) {
        return this.root;
+   }
+   // inorder(node) - prints the tree in order.
+   inorder(node) {
+     if(node !== null) {
+       /// Keep traversing till you've reached the last left node.
+       inorder(node.left);
+       /// process the node.
+       console.log(node);
+       /// Now check the right branch of this node.
+       inorder(node.right);
      }
    }
-   // inorder(node)
-   inorder(node) {
-
+   // preorder(node) - prints the current node then it's children.
+   preorder(node) {
+     if(node !== null) {
+       /// process the node
+       console.log(node);
+       /// Now go to the left branch
+       preorder(node.left);
+       /// Now go to the right branch
+       preorder(node.right);
+     }
    }
-   // preorder(node)
-   // postorder(node)
+   // postorder(node) - prints the children of the node then itself.
+   postorder(node) {
+     if(node !== null) {
+       /// Go left
+       postorder(node.left);
+       /// Go right
+       postorder(node.right);
+       /// Process the node
+       console.log(node.left);
+     }
+   }
    // search(node, data)
 
 }
