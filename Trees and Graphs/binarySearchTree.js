@@ -1,6 +1,6 @@
 ///Copied from
 
-class treeNode {
+class TreeNode {
   constructor(value) {
     this.data = value;
     this.left = null;
@@ -15,7 +15,7 @@ class BinarySearchTree {
 
    // insert(data) - Helper method used to call insertNode with a created node.
   insert(data) {
-    const node = new treeNode(data);
+    const node = new TreeNode(data);
     if(this.root == null) {
       this.root = node;
       return;
@@ -148,8 +148,30 @@ class BinarySearchTree {
      }
    }
    // search(node, data)
-
+   search(node, data) {
+      // if trees is empty return null
+     if(node == null) {
+       return null;
+     }
+     // if data is less than node's data
+    // move left
+     else if(data < node.data){
+       return this.search(node.left, data);
+     }
+    // if data is less than node's data
+    // move left
+     else if(data > node.data){
+       return this.search(node.right, data);
+     }
+     // if data is equal to the node data
+     // return node
+     else {
+       return node;
+     }
+   }
 }
+
+module.exports = { BinarySearchTree, TreeNode };
 
 const tree = new BinarySearchTree();
 
@@ -171,6 +193,10 @@ tree.insert(15);
 
 tree.remove(14);
 tree.remove(5);
+
+const result = tree.search(tree.getRootNode(), 6);
+
+console.log(result);
 
 tree.inorder(tree.getRootNode());
 //tree.preorder(tree.getRootNode());
