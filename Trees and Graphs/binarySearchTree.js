@@ -172,7 +172,7 @@ class BinarySearchTree {
 }
 
 module.exports = { BinarySearchTree, TreeNode };
-
+/*
 const tree = new BinarySearchTree();
 
 tree.insert(8);
@@ -198,6 +198,8 @@ const result = tree.search(tree.getRootNode(), 6);
 
 console.log(result);
 
+
 tree.inorder(tree.getRootNode());
 //tree.preorder(tree.getRootNode());
 //tree.postorder(tree.getRootNode());
+*/
