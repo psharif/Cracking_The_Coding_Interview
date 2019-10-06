@@ -38,7 +38,7 @@ const createLevelLinkedList = (treeNode, lists, level) => {
   createLevelLinkedList(treeNode.left, lists, level + 1);
   // Recurse through the right.
   createLevelLinkedList(treeNode.left, lists, level + 1);
-
+  // Since it doesn't return the lists
   console.log(lists);
 }
 

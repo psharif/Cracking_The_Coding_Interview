@@ -1,40 +1,37 @@
-const { Graph, Node } = require('./graph.js');
-const { Queue } = require('../Linked\ Lists/queue.js');
+const { Graph, Node } = require("./graph.js");
+const { Queue } = require("../Linked Lists/queue.js");
 
 const routeBetweenNodes = (graph, start, end) => {
-  if(start == end)
-    return true;
+  if (start == end) return true;
 
-  for(let u of graph.getNodes()){
-    u[1].state = 'unvisited';
+  for (let u of graph.getNodes()) {
+    u[1].state = "unvisited";
   }
 
   /// Create a queue.
   const q = new Queue();
   q.enqueue(start);
   let u;
-  while(!q.isEmpty()) {
+  while (!q.isEmpty()) {
     u = q.dequeue();
-    if(u) {
-      for(let v of u.getAdjacents()) {
-        if(v.state == 'unvisited') {
-          if(v == end){
+    if (u) {
+      for (let v of u.getAdjacents()) {
+        if (v.state == "unvisited") {
+          if (v == end) {
             return true;
-          }
-          else {
-            v.state = 'visiting';
+          } else {
+            v.state = "visiting";
             q.enqueue(v);
           }
         }
       }
-      u.state = 'visited';
+      u.state = "visited";
     }
   }
   return false;
-}
+};
 
-
-const graph = new Graph('directed');
+const graph = new Graph("directed");
 
 const [first] = graph.addEdge(1, 2);
 graph.addEdge(1, 3);
