@@ -40,11 +40,12 @@ const checkBalanced2 = root => {
   return getHeight2(root) !== "error";
 };
 
+/*
 ///Create a Tree
 const tree = new BinarySearchTree();
 const errorTree = new BinarySearchTree();
 
-/*
+
 /// Error tree
 tree.insert(4);
 tree.insert(2);
