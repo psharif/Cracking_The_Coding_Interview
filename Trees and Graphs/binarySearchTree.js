@@ -45,6 +45,31 @@ class BinarySearchTree {
       this.insertNode(node.right, newNode);
     }
   }
+
+  insertNonSearch(val) {
+    const node = new TreeNode(val);
+    if (this.root === null) {
+      this.root = node;
+      return;
+    }
+
+    this.insertNonSearchNode(this.root, node);
+  }
+
+  insertNonSearchNode(node, newNode) {
+    if (node.left == null) {
+      node.left = newNode;
+      return;
+    } else if (node.left !== null && node.right == null) {
+      node.right = newNode;
+      return;
+    } else {
+      const random = Math.floor(Math.random() * 2);
+      let side = random == 1 ? "right" : "left";
+      this.insertNonSearchNode(node[side], newNode);
+    }
+  }
+
   // remove(data) - Helper method to call removeNode with the root.
   remove(data) {
     return this.removeNode(this.root, data);
@@ -159,6 +184,21 @@ class BinarySearchTree {
     else {
       return node;
     }
+  }
+
+  getNodeNonSearch(node, data) {
+    // if trees is empty return null
+    if (node == null) return null;
+    // if the node value eqauls the value we are looking return the node
+    if (node.data == data) return node;
+    /// Check the left subtree
+    const left = this.getNodeNonSearch(node.left, data);
+    /// Check the right subtree
+    const right = this.getNodeNonSearch(node.right, data);
+    /// If left is not null return left otherwise return right
+    if (left !== null || right !== null) return left !== null ? left : right;
+    /// If both right and left are null return null
+    else return null;
   }
 }
 

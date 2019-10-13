@@ -108,8 +108,10 @@ case2Tree.insert(8);
 
 const search = case2Tree.search(case2Tree.getRootNode(), 3);
 
-//console.log(`The successor is ${successor(case1Tree.getRootNode()).data}`);
-//console.log(case1Tree);
+console.log(
+  `The successor is ${successor(case1Tree.getRootNode(), search).data}`
+);
+
 console.log(
   `The successor is ${
     successor(case2Tree, search) == null

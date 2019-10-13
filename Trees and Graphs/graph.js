@@ -13,23 +13,23 @@ class Node {
 
   removeAdjacent(node) {
     const index = this.adjacentNodes.indexOf(node);
-    if(index > -1){
+    if (index > -1) {
       this.adjacentNodes.splice(index, 1);
       return node;
     }
   }
 
-  getAdjacents(){
+  getAdjacents() {
     return this.adjacentNodes;
   }
 
-  isAdjacent(){
+  isAdjacent() {
     return this.adjacentNodes.indexOf(node) > -1;
   }
 }
 
 class Graph {
-  constructor(edgeDirection = 'directed'){
+  constructor(edgeDirection = "directed") {
     this.nodes = new Map();
     this.edgeDirection = edgeDirection;
   }
@@ -40,7 +40,7 @@ class Graph {
 
     sourceNode.addAdjacent(destinationNode);
 
-    if(this.edgeDirection == 'undirected') {
+    if (this.edgeDirection == "undirected") {
       destinationNode.addAdjacent(sourceNode);
     }
 
@@ -48,7 +48,7 @@ class Graph {
   }
 
   addVertex(value) {
-    if(this.nodes.has(value)) {
+    if (this.nodes.has(value)) {
       return this.nodes.get(value);
     }
 
@@ -59,8 +59,8 @@ class Graph {
 
   removeVertext() {
     const current = this.nodes.get(value);
-    if(current){
-      for(let node of this.nodes.values()){
+    if (current) {
+      for (let node of this.nodes.values()) {
         node.removeAdjacent(current);
       }
     }
@@ -71,10 +71,10 @@ class Graph {
     const sourceNode = this.nodes.get(source);
     const destinationNode = this.nodes.get(destination);
 
-    if(sourceNode && destinationNode) {
+    if (sourceNode && destinationNode) {
       sourceNode.removeAdjacent(destinationNode);
 
-      if(this.edgeDirection == 'undirected') {
+      if (this.edgeDirection == "undirected") {
         destinationNode.removeAdjacent(sourceNode);
       }
     }
@@ -82,7 +82,7 @@ class Graph {
     return [sourceNode, destinationNode];
   }
 
-  getNodes(){
+  getNodes() {
     return this.nodes;
   }
   /*
