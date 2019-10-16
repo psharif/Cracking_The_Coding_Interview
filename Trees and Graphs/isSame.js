@@ -15,6 +15,7 @@ const isSame = (n1, n2) => {
   } else return false;
 };
 
+/*
 const bTree1 = new BinarySearchTree();
 const bTree2 = new BinarySearchTree();
 const bTree3 = new BinarySearchTree();
@@ -51,3 +52,6 @@ const notSame = isSame(bTree1.getRootNode(), bTree3.getRootNode());
 
 console.log(same);
 console.log(notSame);
+*/
+
+module.exports = { isSame };
