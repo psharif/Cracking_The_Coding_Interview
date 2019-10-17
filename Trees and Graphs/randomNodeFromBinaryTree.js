@@ -1,3 +1,4 @@
+/// Redfined Tree Node for this question.
 class TreeNode {
   constructor(value) {
     this.data = value;
@@ -31,10 +32,9 @@ class TreeNode {
     return this.data;
   }
 
+  //// Used for Get Random Node. To get the Ith Node
   getIthNode(index) {
     const leftSize = this.left == null ? 0 : this.left.getSize();
-    console.log(leftSize);
-    console.log(index);
     if (index < leftSize) {
       return this.left.getIthNode(index);
     } else if (leftSize == index) {
@@ -44,7 +44,7 @@ class TreeNode {
     }
   }
 }
-
+/// Redifined Binary Search Tree
 class BinarySearchTree {
   constructor() {
     this.root = null;
@@ -56,7 +56,6 @@ class BinarySearchTree {
       this.root = new TreeNode(data);
       return;
     }
-
     this.root.insertInOrder(data);
   }
 
@@ -66,6 +65,7 @@ class BinarySearchTree {
   }
 }
 
+//// Method to get the random node from a tree
 const getRandomNode = tree => {
   const root = tree.getRootNode();
   if (root == null) return null;
@@ -73,6 +73,7 @@ const getRandomNode = tree => {
   return root.getIthNode(index);
 };
 
+/*
 ///Create a Tree
 const tree = new BinarySearchTree();
 
@@ -86,3 +87,4 @@ tree.insertInOrder(3);
 tree.insertInOrder(1);
 
 console.log(getRandomNode(tree));
+*/
