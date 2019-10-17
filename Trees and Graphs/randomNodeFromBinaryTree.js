@@ -70,7 +70,6 @@ const getRandomNode = tree => {
   const root = tree.getRootNode();
   if (root == null) return null;
   const index = Math.floor(Math.random() * root.getSize());
-  console.log("Index " + index);
   return root.getIthNode(index);
 };
 
