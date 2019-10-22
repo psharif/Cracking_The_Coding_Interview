@@ -136,7 +136,7 @@ class BinarySearchTree {
       /// Keep traversing till you've reached the last left node.
       this.inorder(node.left);
       /// process the node.
-      console.log(node.data);
+      console.log(node.left);
       /// Now check the right branch of this node.
       this.inorder(node.right);
     }
@@ -145,7 +145,7 @@ class BinarySearchTree {
   preorder(node) {
     if (node !== null) {
       /// process the node
-      console.log(node.data);
+      console.log(node);
       /// Now go to the left branch
       this.preorder(node.left);
       /// Now go to the right branch
