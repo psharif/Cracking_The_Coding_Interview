@@ -35,6 +35,8 @@ Each element nums[i] will be an integer in the range [-1000, 1000].
  * @param {number[]} nums
  * @return {number}
  */
+
+///Original Solution
 var pivotIndex = function(nums) {
   for (let piv = 0; piv < nums.length; piv++) {
     let leftSum = nums.slice(0, piv).reduce((accum, el) => accum + el, 0);
